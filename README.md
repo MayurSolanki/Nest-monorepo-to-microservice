@@ -32,4 +32,5 @@ nest build my-app
 ##  Microservice
 
  
+ ### https://javascript.plainenglish.io/developing-nest-js-microservices-within-a-monorepo-a-step-by-step-guide-2d65f8388204#a2eb
 
