@@ -1,5 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppProductsService } from './app-products.service';
+import { MessagePattern } from '@nestjs/microservices';
 
 @Controller('product')
 export class AppProductsController {
@@ -8,5 +9,10 @@ export class AppProductsController {
   @Get()
   getHello(): string {
     return this.appProductsService.getHello();
+  }
+
+  @MessagePattern({ cmd: 'greet' })
+  greet(data: string): string {
+    return `${data} Solankiii ji !! `;
   }
 }
