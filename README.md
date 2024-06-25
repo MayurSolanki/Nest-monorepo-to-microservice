@@ -31,8 +31,9 @@ nest build my-app
 
 ##  Microservice
 
- 
- #### https://javascript.plainenglish.io/developing-nest-js-microservices-within-a-monorepo-a-step-by-step-guide-2d65f8388204#a2eb
-
-#### https://medium.com/widle-studio/mastering-microservices-in-nest-js-eb143a6b9639
+nest-monorepo-shared-code - 3000
+app-products - 3001
+app-user = 3002
+api-gateway = 3003
+client-app = 3004
 
