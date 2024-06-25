@@ -8,7 +8,7 @@
     "tsConfigPath": "apps/nest-monorepo-shared-code/tsconfig.app.json"
   },
   "monorepo": true,
-  "root": "apps/nest-monorepo-shared-code", 
+  "root": "apps/nest-monorepo-shared-code",
   "projects": {
     "nest-monorepo-shared-code": {
       "type": "application",
@@ -44,6 +44,24 @@
       "sourceRoot": "libs/my-library/src",
       "compilerOptions": {
         "tsConfigPath": "libs/my-library/tsconfig.lib.json"
+      }
+    },
+    "api-gateway": {
+      "type": "application",
+      "root": "apps/api-gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-gateway/tsconfig.app.json"
+      }
+    },
+    "client-app": {
+      "type": "application",
+      "root": "apps/client-app",
+      "entryFile": "main",
+      "sourceRoot": "apps/client-app/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/client-app/tsconfig.app.json"
       }
     }
   }
