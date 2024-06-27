@@ -20,7 +20,7 @@ export class AppProductsController {
   @MessagePattern('product_added')
   handleProductAdded(product: any) {
     this.appProductsService.addProduct(product.name, product.price);
-    return { success: true, message: `Product ${product.name} added successfully` };
+    return { success: true, result : {message: `Product ${product.name} added successfully` } };
   }
 
 
