@@ -34,6 +34,6 @@ nest build my-app
 nest-monorepo-shared-code - 3000
 app-products - 3001
 app-user = 3002
-api-gateway = 3003
-client-app = 3004
+api-gateway = 3003 | 3005
+client-app = 3004  
 
