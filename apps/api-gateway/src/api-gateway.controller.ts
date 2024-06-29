@@ -8,6 +8,7 @@ import {
   Payload,
   MessagePattern,
 } from '@nestjs/microservices';
+import { timeout } from 'rxjs';
 
 @Controller()
 export class ApiGatewayController {
@@ -28,6 +29,7 @@ export class ApiGatewayController {
     // Forward the request to Microservice A using message pattern
     const result = await this.productMiService
       .send('get_products', 'get_products_req')
+      .pipe(timeout(1000))  // always use time out to prevent unncessarily long time wait.
       .toPromise();
     return result;
   }
