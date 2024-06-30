@@ -1,5 +1,5 @@
 {
-  "name": "nest-monorepo-shared-code",
+  "name": "my-app",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -16,15 +16,16 @@
     "start:dev:client-app": "nest start --watch --watchAssets client-app",
     "start:dev:app-products": "nest start --watch --watchAssets app-products",
     "start:dev:app-user": "nest start --watch --watchAssets app-user",
+    "start:dev:my-app": "nest start --watch --watchAssets my-app",
     "start:dev": "nest start app-products app-user --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/apps/nest-monorepo-shared-code/main",
+    "start:prod": "node dist/apps/my-app/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./apps/nest-monorepo-shared-code/test/jest-e2e.json"
+    "test:e2e": "jest --config ./apps/my-app/test/jest-e2e.json"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
