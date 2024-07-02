@@ -3,6 +3,6 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class AppService {
   getHello(): string {
-    return 'Hello World from my-app!';
+    return 'Hello World from nest-monorepo-shared-code!!';
   }
 }
