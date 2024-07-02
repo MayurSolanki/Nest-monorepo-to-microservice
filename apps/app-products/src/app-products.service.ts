@@ -1,10 +1,7 @@
+import { Product } from '@app/my-library/product.interface';
 import { Injectable } from '@nestjs/common';
 
-export interface Product{
-  id: number,
-  name: string,
-  price: number
-}
+
 
 @Injectable()
 export class AppProductsService {

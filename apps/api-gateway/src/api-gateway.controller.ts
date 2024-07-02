@@ -9,6 +9,7 @@ import {
   MessagePattern,
 } from '@nestjs/microservices';
 import { timeout } from 'rxjs';
+import { ProductDTO, UserDTO } from '@app/my-library/common.dto';
 
 @Controller()
 export class ApiGatewayController {
@@ -24,45 +25,41 @@ export class ApiGatewayController {
   ) {}
   //
 
-  @Get('products')
+  @Get('products-api')
+  async getProductsApi() {
+    // Forward the request to Microservice A using message pattern
+    const result = await this.productMiService
+      .send('get_products_req', 'get_products_data')
+      .pipe(timeout(5000)) // always use time out to prevent unncessarily long time wait.
+      .toPromise();
+    return result;
+  }
+
+  @MessagePattern('get_products_req')
   async getProducts() {
     // Forward the request to Microservice A using message pattern
     const result = await this.productMiService
-      .send('get_products', 'get_products_req')
-      .pipe(timeout(1000))  // always use time out to prevent unncessarily long time wait.
+      .send('get_products_req', 'get_products_data')
+      .pipe(timeout(5000)) // always use time out to prevent unncessarily long time wait.
       .toPromise();
     return result;
   }
 
-  @Post('add-product')
-  async addProduct(@Body() body: any) {
+  @MessagePattern('post_add_products_req')
+  async addProduct(@Body() productDTO: ProductDTO) {
     const result = await this.productMiService
-      .emit('product_added', body)
-      .toPromise();
-     
-    return result;
-  }
-
-  @Get('users')
-  async getUsers() {
-    // Forward the request to Microservice A using Event pattern
-    const result = await this.userMiService
-      .emit('get_users_req', {})
+      .send('post_add_products_req', productDTO)
+      .pipe(timeout(5000))
       .toPromise();
     return result;
   }
+  // =====================================================================================
 
-  @Post('create-user')
-  async createUser(@Body() body: any) {
-    return this.userMiService.emit('user_created', body);
-  }
-
-  @MessagePattern('get_products')
-  async handleProducts() {
-    const result = await this.productMiService
-      .send('get_products', 'get_products_req')
-      .toPromise();
-    return result;
+  @MessagePattern('post_create_user_req')
+  async createUser(@Body() userDTO: UserDTO) {
+     this.userMiService.emit('post_create_user_req', userDTO);
+    //.pipe(defaultIfEmpty([]));
+   // return result;
   }
 
   @Get()

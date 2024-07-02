@@ -16,6 +16,7 @@
     "start:dev:client-app": "nest start --watch --watchAssets client-app",
     "start:dev:app-products": "nest start --watch --watchAssets app-products",
     "start:dev:app-user": "nest start --watch --watchAssets app-user",
+    "start:dev:nest-monorepo-shared-code": "nest start --watch --watchAssets nest-monorepo-shared-code",
     "start:dev": "nest start app-products app-user --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/apps/nest-monorepo-shared-code/main",

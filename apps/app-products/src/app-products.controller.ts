@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppProductsService } from './app-products.service';
 import { MessagePattern } from '@nestjs/microservices';
+import { ProductDTO } from '@app/my-library/common.dto';
 
 @Controller('product')
 export class AppProductsController {
@@ -11,16 +12,16 @@ export class AppProductsController {
     return this.appProductsService.getHello();
   }
 
-  @MessagePattern('get_products')
+  @MessagePattern('get_products_req')
   async handleProducts() {
     const result =  await  this.appProductsService.getProducts();
     return { success: true, result: result };
   }
 
-  @MessagePattern('product_added')
-  handleProductAdded(product: any) {
-    this.appProductsService.addProduct(product.name, product.price);
-    return { success: true, result : {message: `Product ${product.name} added successfully` } };
+  @MessagePattern('post_add_products_req')
+  async handleProductAdded(productDTO: ProductDTO) {
+    this.appProductsService.addProduct(productDTO.name, productDTO.price);
+    return { success: true, result : {message: `Product ${productDTO.name} added successfully` } };
   }
 
 
