@@ -31,7 +31,7 @@ nest build my-app
 
 ##  Microservice
 
-nest-monorepo-shared-code - 3000
+nest-monorepo-shared-code | my-app - 3000
 app-products - 3001
 app-user = 3002
 api-gateway = 3003 | 3005
