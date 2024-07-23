@@ -36,4 +36,5 @@ app-products - 3001
 app-user = 3002
 api-gateway = 3003 | 3005
 client-app = 3004  
+app-order = 3006
 

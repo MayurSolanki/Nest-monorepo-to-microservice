@@ -12,11 +12,13 @@
     "start:client-app": "nest start client-app",
     "start:app-products": "nest start app-products",
     "start:app-user": "nest start app-user",
+    "start:app-order": "nest start app-order",
     "start:dev:api-gateway": "nest start --watch --watchAssets api-gateway",
     "start:dev:client-app": "nest start --watch --watchAssets client-app",
     "start:dev:app-products": "nest start --watch --watchAssets app-products",
     "start:dev:app-user": "nest start --watch --watchAssets app-user",
     "start:dev:nest-monorepo-shared-code": "nest start --watch --watchAssets nest-monorepo-shared-code",
+    "start:dev:app-order": "nest start --watch --watchAssets app-order",
     "start:dev": "nest start app-products app-user --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/apps/nest-monorepo-shared-code/main",
@@ -28,6 +30,8 @@
     "test:e2e": "jest --config ./apps/nest-monorepo-shared-code/test/jest-e2e.json"
   },
   "dependencies": {
+    "@grpc/grpc-js": "^1.11.1",
+    "@grpc/proto-loader": "^0.7.13",
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
     "@nestjs/microservices": "^10.3.9",

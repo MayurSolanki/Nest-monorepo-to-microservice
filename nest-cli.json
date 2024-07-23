@@ -3,6 +3,8 @@
   "collection": "@nestjs/schematics",
   "sourceRoot": "apps/nest-monorepo-shared-code/src",
   "compilerOptions": {
+    "assets": ["**/*.proto"],
+    "watchAssets": true,
     "deleteOutDir": true,
     "webpack": true,
     "tsConfigPath": "apps/nest-monorepo-shared-code/tsconfig.app.json"
@@ -62,6 +64,17 @@
       "sourceRoot": "apps/client-app/src",
       "compilerOptions": {
         "tsConfigPath": "apps/client-app/tsconfig.app.json"
+      }
+    },
+    "app-order": {
+      "type": "application",
+      "root": "apps/app-order",
+      "entryFile": "main",
+      "sourceRoot": "apps/app-order/src",
+      "compilerOptions": {
+        "assets": ["**/*.proto"],
+        "watchAssets": true,
+        "tsConfigPath": "apps/app-order/tsconfig.app.json"
       }
     }
   }
