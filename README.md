@@ -38,3 +38,16 @@ api-gateway = 3003 | 3005
 client-app = 3004  
 app-order = 3006
 
+```
+npm run start:api-gateway
+npm run start:microservice-a
+npm run start:microservice-b
+npm run start:client-app
+npm run start:app-order
+
+npm run start:dev:api-gateway
+npm run start:dev:microservice-a
+npm run start:dev:microservice-b
+npm run start:dev:client-app
+npm run start:dev:app-order
+```

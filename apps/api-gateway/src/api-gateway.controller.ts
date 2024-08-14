@@ -1,4 +1,13 @@
-import { Body, Controller, Get, Inject, Post, Req, Res } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Inject,
+  Param,
+  Post,
+  Req,
+  Res,
+} from '@nestjs/common';
 import { ApiGatewayService } from './api-gateway.service';
 import {
   Client,
@@ -53,14 +62,23 @@ export class ApiGatewayController {
       .toPromise();
     return result;
   }
-  // =====================================================================================
 
+  // ============ Emit Event ======================================================
   @MessagePattern('post_create_user_req')
   async createUser(@Body() userDTO: UserDTO) {
-     this.userMiService.emit('post_create_user_req', userDTO);
+    this.userMiService.emit('post_create_user_req', userDTO);
     //.pipe(defaultIfEmpty([]));
-   // return result;
+    // return result;
   }
+
+  // ============ gRPC Communication ==============================================
+
+  // @MessagePattern('get_order_req')
+  // async getOrder(id: number) {
+  //    this.orderMiService.emit('get_order_req', userDTO);
+  //   //.pipe(defaultIfEmpty([]));
+  //   // return result;
+  // }
 
   @Get()
   getHello(): string {

@@ -7,3 +7,7 @@ export class UserDTO {
   name: string;
   mobile: number;
 }
+
+// export class OrderDTO{
+//    id:number
+// }
