@@ -31,12 +31,12 @@ nest build my-app
 
 ##  Microservice
 
-nest-monorepo-shared-code | my-app - 3000
-app-products - 3001
-app-user = 3002
-api-gateway = 3003 | 3005
-client-app = 3004  
-app-order = 3006
+nest-monorepo-shared-code | my-app - 3000 <br />
+app-products - 3001 <br />
+app-user = 3002 <br />
+api-gateway = 3003 | 3005 <br />
+client-app = 3004 <br />
+app-order = 3006 <br />
 
 ```
 npm run start:api-gateway
